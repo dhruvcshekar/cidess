@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Property Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<style>
+        body {
+            background-image: url("{{ url_for('static', filename='image.jpg') }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Property Price Prediction</h1>
+    <form method="POST">
+        <label for="country">Country:</label>
+        <select name="country" id="country">
+            <option value="Turkey">Turkey</option>
+    <option value="Georgia">Georgia</option>
+    <option value="Thailand">Thailand</option>
+    <option value="Montenegro">Montenegro</option>
+    <option value="Northern Cyprus">Northern Cyprus</option>
+    <option value="UAE">UAE</option>
+    <option value="Lithuania">Lithuania</option>
+    <option value="Belarus">Belarus</option>
+    <option value="Czech Republic">Czech Republic</option>
+    <option value="Uzbekistan">Uzbekistan</option>
+
+        </select>
+        <br>
+
+        <label for="construction_year">Construction Year:</label>
+        <input type="number" name="construction_year" required><br>
+
+        <label for="total_floors">Total Floors:</label>
+        <input type="number" name="total_floors" required><br>
+
+        <label for="apartment_floor">Apartment Floor:</label>
+        <input type="number" name="apartment_floor" required><br>
+
+        <label for="rooms">Rooms:</label>
+        <input type="number" name="rooms" required><br>
+
+        <label for="bedrooms">Bedrooms:</label>
+        <input type="number" name="bedrooms" required><br>
+
+        <label for="bathrooms">Bathrooms:</label>
+        <input type="number" name="bathrooms" required><br>
+
+        <label for="total_area">Total Area:</label>
+        <input type="number" name="total_area" required><br>
+
+        <label for="living_area">Living Area:</label>
+        <input type="number" name="living_area" required><br>
+
+        <button type="submit">Predict Price</button>
+    </form>
+
+    {% if predicted_price is defined %}
+    <div class="result">
+        <p>Predicted Price: ${{ predicted_price }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
